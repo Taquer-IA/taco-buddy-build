@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taquería "El Buen Sabor"</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/taquer/taquer.css">
+</head>
+<body>
+    <!-- Header con diseño mejorado -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <h1>🌮 Taquería "El Buen Sabor"</h1>
+                <p>¡Los mejores tacos de la ciudad!</p>
+            </div>
+            <div class="header-badge">
+                <span>⭐ 4.9/5 desde 287 opiniones</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Barra de navegación -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="#premade" class="nav-link active">Tacos Especiales</a>
+                <a href="#builder" class="nav-link">Armar Tu Taco</a>
+                <a href="#cart" class="nav-link">Mi Pedido</a>
+            </div>
+            <div class="contact-info">
+                <span><i class="fas fa-clock"></i> Abierto hasta las 22:00</span>
+                <span><i class="fas fa-phone"></i> 555-1234</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+        <!-- Banner promocional -->
+        <section class="promo-banner">
+            <div class="banner-content">
+                <h2>🌮 ¡Taco Lovers! 🌮</h2>
+                <p>Hoy todos los tacos llevan guacamole gratis</p>
+                <span class="promo-timer">Oferta termina en: <span id="countdown">59:59</span></span>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="content-column">
+                <!-- Tacos Predefinidos -->
+                <section id="premade" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-crown"></i> Nuestras Especialidades</h2>
+                        <p>Los tacos favoritos de nuestros clientes</p>
+                    </div>
+                    
+                    <div class="taco-grid">
+                        <!-- Taco 1 -->
+                        <div class="taco-card">
+                            <div class="taco-img" style="background: linear-gradient(45deg, #ff6b6b, #ff8e8e);">
+                                <div class="popular-badge">Más Popular</div>
+                                Taco al Pastor
+                            </div>
+                            <div class="taco-info">
+                                <h3>Taco al Pastor</h3>
+                                <p>Carne de cerdo marinada con especias, piña y cebolla.</p>
+                                <div class="taco-details">
+                                    <span class="calories">🌶️ Picante medio</span>
+                                    <span class="rating">★★★★★ 4.8</span>
+                                </div>
+                                <div class="taco-price">$25.00 MXN</div>
+                                <button class="add-to-cart" onclick="addToCart('Taco al Pastor', 25, 'taco-al-pastor')">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Taco 2 -->
+                        <div class="taco-card">
+                            <div class="taco-img" style="background: linear-gradient(45deg, #8b4513, #a85f2d);">
+                                Taco de Bistec
+                            </div>
+                            <div class="taco-info">
+                                <h3>Taco de Bistec</h3>
+                                <p>Finas tiras de bistec a la plancha con cebolla y cilantro.</p>
+                                <div class="taco-details">
+                                    <span class="calories">🌶️ Suave</span>
+                                    <span class="rating">★★★★☆ 4.5</span>
+                                </div>
+                                <div class="taco-price">$28.00 MXN</div>
+                                <button class="add-to-cart" onclick="addToCart('Taco de Bistec', 28, 'taco-bistec')">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Taco 3 -->
+                        <div class="taco-card">
+                            <div class="taco-img" style="background: linear-gradient(45deg, #d35400, #e67e22);">
+                                <div class="popular-badge">Recomendado</div>
+                                Taco de Carnitas
+                            </div>
+                            <div class="taco-info">
+                                <h3>Taco de Carnitas</h3>
+                                <p>Suave carne de cerdo confitada con naranja y especias.</p>
+                                <div class="taco-details">
+                                    <span class="calories">🌶️ Suave</span>
+                                    <span class="rating">★★★★★ 4.7</span>
+                                </div>
+                                <div class="taco-price">$26.00 MXN</div>
+                                <button class="add-to-cart" onclick="addToCart('Taco de Carnitas', 26, 'taco-carnitas')">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Taco 4 -->
+                        <div class="taco-card">
+                            <div class="taco-img" style="background: linear-gradient(45deg, #27ae60, #2ecc71);">
+                                Taco Vegetariano
+                            </div>
+                            <div class="taco-info">
+                                <h3>Taco Vegetariano</h3>
+                                <p>Mix de verduras asadas con queso panela and aguacate.</p>
+                                <div class="taco-details">
+                                    <span class="calories">🌶️ Suave</span>
+                                    <span class="rating">★★★★☆ 4.6</span>
+                                </div>
+                                <div class="taco-price">$22.00 MXN</div>
+                                <button class="add-to-cart" onclick="addToCart('Taco Vegetariano', 22, 'taco-vegetariano')">
+                                    <i class="fas fa-plus"></i> Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Constructor de Tacos -->
+                <section id="builder" class="content-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-utensils"></i> Arma Tu Taco Perfecto</h2>
+                        <p>Personaliza cada ingrediente a tu gusto</p>
+                    </div>
+                    
+                    <div class="builder-container">
+                        <div class="ingredients-section">
+                            <!-- Tipo de tortilla -->
+                            <div class="ingredient-category">
+                                <h3><i class="fas fa-bread-slice"></i> Tipo de Tortilla</h3>
+                                <div class="ingredient-options">
+                                    <button class="ingredient-btn" onclick="selectIngredient('tortilla', 'Maíz', 5, 'tortilla-maiz')">
+                                        <span class="ingredient-name">Maíz</span>
+                                        <span class="ingredient-price">+$5</span>
+                                    </button>
+                                    <button class="ingredient-btn" onclick="selectIngredient('tortilla', 'Harina', 6, 'tortilla-harina')">
+                                        <span class="ingredient-name">Harina</span>
+                                        <span class="ingredient-price">+$6</span>
+                                    </button>
+                                    <button class="ingredient-btn" onclick="selectIngredient('tortilla', 'Azul', 7, 'tortilla-azul')">
+                                        <span class="ingredient-name">Maíz Azul</span>
+                                        <span class="ingredient-price">+$7</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Tipo de proteína -->
+                            <div class="ingredient-category">
+                                <h3><i class="fas fa-drumstick-bite"></i> Proteína</h3>
+                                <div class="ingredient-options">
+                                    <button class="ingredient-btn" onclick="selectIngredient('protein', 'Pollo', 12, 'proteina-pollo')">
+                                        <span class="ingredient-name">Pollo</span>
+                                        <span class="ingredient-price">+$12</span>
+                                    </button>
+                                    <button class="ingredient-btn" onclick="selectIngredient('protein', 'Res', 15, 'proteina-res')">
+                                        <span class="ingredient-name">Res</span>
+                                        <span class="ingredient-price">+$15</span>
+                                    </button>
+                                    <button class="ingredient-btn" onclick="selectIngredient('protein', 'Cerdo', 14, 'proteina-cerdo')">
+                                        <span class="ingredient-name">Cerdo</span>
+                                        <span class="ingredient-price">+$14</span>
+                                    </button>
+                                    <button class="ingredient-btn" onclick="selectIngredient('protein', 'Vegetal', 10, 'proteina-vegetal')">
+                                        <span class="ingredient-name">Vegetal</span>
+                                        <span class="ingredient-price">+$10</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Salsas -->
+                            <div class="ingredient-category">
+                                <h3><i class="fas fa-fire"></i> Salsas</h3>
+                                <div class="ingredient-options">
+                                    <button class="ingredient-btn" onclick="toggleIngredient('salsa', 'Verde', 3, 'salsa-verde')">
+                                        <span class="ingredient-name">Verde</span>
+                                        <span class="ingredient-price">+$3</span>
+                                    </button>
+                                    <button class="ingredient-btn" onclick="toggleIngredient('salsa', 'Roja', 3, 'salsa-roja')">
+                                        <span class="ingredient-name">Roja</span>
+                                        <span class="ingredient-price">+$3</span>
+                                    </button>
+                                    <button class="ingredient-btn" onclick="toggleIngredient('salsa', 'Habanero', 4, 'salsa-habanero')">
+                                        <span class="ingredient-name">Habanero</span>
+                                        <span class="ingredient-price">+$4</span>
+                                    </button>
+                                    <button class="ingredient-btn" onclick="toggleIngredient('salsa', 'Molcajete', 5, 'salsa-molcajete')">
+                                        <span class="ingredient-name">Molcajete</span>
+                                        <span class="ingredient-price">+$5</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Toppings adicionales -->
+                            <div class="ingredient-category">
+                                <h3><i class="fas fa-leaf"></i> Toppings Adicionales</h3>
+                                <div class="ingredient-options">
+                                    <button class="ingredient-btn" onclick="toggleIngredient('topping', 'Guacamole', 8, 'topping-guacamole')">
+                                        <span class="ingredient-name">Guacamole</span>
+                                        <span class="ingredient-price">+$8</span>
+                                    </button>
+                                    <button class="ingredient-btn" onclick="toggleIngredient('topping', 'Queso', 7, 'topping-queso')">
+                                        <span class="ingredient-name">Queso</span>
+                                        <span class="ingredient-price">+$7</span>
+                                    </button>
+                                    <button class="ingredient-btn" onclick="toggleIngredient('topping', 'Crema', 5, 'topping-crema')">
+                                        <span class="ingredient-name">Crema</span>
+                                        <span class="ingredient-price">+$5</span>
+                                    </button>
+                                    <button class="ingredient-btn" onclick="toggleIngredient('topping', 'Cebolla', 3, 'topping-cebolla')">
+                                        <span class="ingredient-name">Cebolla</span>
+                                        <span class="ingredient-price">+$3</span>
+                                    </button>
+                                    <button class="ingredient-btn" onclick="toggleIngredient('topping', 'Cilantro', 2, 'topping-cilantro')">
+                                        <span class="ingredient-name">Cilantro</span>
+                                        <span class="ingredient-price">+$2</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="preview-section">
+                            <div class="preview-header">
+                                <h3>Tu Creación</h3>
+                                <div class="save-recipe">
+                                    <i class="fas fa-bookmark"></i> Guardar
+                                </div>
+                            </div>
+                            
+                            <div class="taco-visualization" id="taco-visualization">
+                                <!-- Visualización del taco -->
+                            </div>
+                            
+                            <div class="ingredient-summary">
+                                <h4>Ingredientes seleccionados:</h4>
+                                <ul class="ingredient-list" id="custom-taco-list">
+                                    <li class="empty-state">Selecciona ingredientes para comenzar</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="preview-footer">
+                                <div class="preview-price" id="custom-taco-price">Total: $0.00 MXN</div>
+                                <button class="add-to-cart-large" onclick="addCustomTacoToCart()">
+                                    <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Testimonios -->
+                <section class="content-section testimonials">
+                    <div class="section-header">
+                        <h2><i class="fas fa-comment"></i> Lo que dicen nuestros clientes</h2>
+                        <p>Experiencias reales de amantes del taco</p>
+                    </div>
+                    <div class="testimonial-grid">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="stars">★★★★★</div>
+                                <p>"Los mejores tacos al pastor que he probado. ¡La salsa de habanero es increíble!"</p>
+                                <div class="testimonial-author">
+                                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><circle cx='20' cy='20' r='20' fill='%23f39c12'/><text x='20' y='25' font-family='Arial' font-size='14' fill='white' text-anchor='middle'>M</text></svg>" alt="Usuario">
+                                    <div>
+                                        <strong>María González</strong>
+                                        <span>Cliente frecuente</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="stars">★★★★★</div>
+                                <p>"Me encanta que puedo personalizar cada detalle de mi taco. ¡Como yo quiero!"</p>
+                                <div class="testimonial-author">
+                                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><circle cx='20' cy='20' r='20' fill='%232ecc71'/><text x='20' y='25' font-family='Arial' font-size='14' fill='white' text-anchor='middle'>C</text></svg>" alt="Usuario">
+                                    <div>
+                                        <strong>Carlos Rodríguez</strong>
+                                        <span>Primera visita</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- Panel del Carrito -->
+            <aside class="cart-sidebar">
+                <div class="cart-header">
+                    <div class="cart-title">
+                        <i class="fas fa-shopping-cart"></i> Mi Pedido
+                        <div class="cart-badge" id="cart-badge">0</div>
+                    </div>
+                    <button class="clear-cart-btn" onclick="clearCart()">
+                        <i class="fas fa-trash"></i> Vaciar
+                    </button>
+                </div>
+                
+                <div class="cart-items" id="cart-items">
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Tu carrito está vacío</p>
+                        <small>Agrega algunos tacos deliciosos</small>
+                    </div>
+                </div>
+                
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="cart-subtotal">$0.00 MXN</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Envío:</span>
+                        <span id="cart-shipping">$25.00 MXN</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="cart-total">$25.00 MXN</span>
+                    </div>
+                </div>
+                
+                <div class="delivery-options">
+                    <h4>¿Cómo lo prefieres?</h4>
+                    <div class="option-buttons">
+                        <button class="delivery-option active">
+                            <i class="fas fa-store"></i> Recoger en tienda
+                        </button>
+                        <button class="delivery-option">
+                            <i class="fas fa-motorcycle"></i> Delivery
+                        </button>
+                    </div>
+                </div>
+                
+                <button class="checkout-btn" onclick="checkout()">
+                    <i class="fas fa-check-circle"></i> Realizar Pedido
+                </button>
+
+                <div class="security-badge">
+                    <i class="fas fa-lock"></i>
+                    <span>Pago seguro garantizado</span>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Taquería "El Buen Sabor"</h3>
+                <p>Los auténticos sabores de México en cada bocado</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Horario</h4>
+                <p>Lunes a Domingo</p>
+                <p>11:00 AM - 10:00 PM</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-phone"></i> 555-1234</p>
+                <p><i class="fas fa-map-marker-alt"></i> Av. Principal #123</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Taquería "El Buen Sabor". Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span>¡Producto agregado al carrito!</span>
+    </div>
+    
+    <!-- Asistente Virtual Taffy -->
+   <!-- Burbuja de Taffy Asistente Virtual -->
+    <div class="taffy-chat-bubble" id="taffyChatBubble">
+        <img src="taquer.png" alt="Taffy">
+    </div>
+
+    <!-- Contenido de Taffy (oculto inicialmente) -->
+    <div class="taffy-original-content hidden" id="taffyOriginalContent">
+        <div class="taffy-assistant-container">
+            <!-- Panel izquierdo de opciones -->
+            <div class="taffy-panel visible">
+                <div class="taffy-panel-content">
+                    <div class="taffy-actions-section">
+                        <h2>¿Cómo puedo ayudarte?</h2>
+                        <div class="taffy-buttons">
+                            <button class="taffy-btn" data-action="uso">
+                                <span class="taffy-icon">📝</span>
+                                <span>Uso del sistema</span>
+                            </button>
+                            <button class="taffy-btn" data-action="pagos">
+                                <span class="taffy-icon">💳</span>
+                                <span>Opciones de pago</span>
+                            </button>
+                            <button class="taffy-btn" data-action="recomendaciones">
+                                <span class="taffy-icon">🌟</span>
+                                <span>Recomendaciones</span>
+                            </button>
+                            <button class="taffy-btn" data-action="ayuda">
+                                <span class="taffy-icon">❓</span>
+                                <span>Ayuda</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="taffy-settings-section">
+                        <h2>Configuración</h2>
+                        <div class="taffy-settings-options">
+                            <label class="taffy-toggle">
+                                <input type="checkbox" id="taffyTtsToggle" checked>
+                                <span class="taffy-toggle-label">
+                                    <span class="taffy-icon">🔊</span>
+                                    <span>Voz de Taffy</span>
+                                </span>
+                            </label>
+                            <button id="taffySttBtn" class="taffy-voice-btn">
+                                <span class="taffy-icon">🎤</span>
+                                <span>Hablar con Taffy</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenedor derecho (Taffy + diálogo) -->
+            <div class="taffy-main-section">
+                <!-- Burbuja de diálogo -->
+                <div id="taffyBubble" class="taffy-bubble visible">
+                    <div class="taffy-bubble-content">
+                        <div class="taffy-bubble-text">¡Hola! Soy Taffy, tu asistente virtual.</div>
+                    </div>
+                </div>
+
+                <!-- Imagen de Taffy -->
+                <div class="taffy-image-container">
+                    <img src="taquer.png" alt="Taffy Asistente" class="taffy-image" id="taffyImage">
+                    <div class="taffy-click-hint">¡Hazme click!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón de cerrar Taffy -->
+    <button class="taffy-close-btn hidden" id="taffyCloseBtn">×</button>
+    
+    <script src="script.js"></script>
+    <script src="/taquer/taquer.js"></script>
+</body>
+</html>

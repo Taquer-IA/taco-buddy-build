@@ -1,0 +1,295 @@
+/* Variables específicas para Taffy */
+:root {
+  --taffy-primary: #c49b63;
+  --taffy-primary-dark: #8b5e2e;
+  --taffy-background: #f7f3ef;
+  --taffy-bubble: #fff8e1;
+  --taffy-text: #2a1c12;
+  --taffy-panel: rgba(255, 255, 255, 0.95);
+  --taffy-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Burbuja flotante de Taffy */
+.taffy-chat-bubble {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--taffy-primary);
+  border-radius: 50%;
+  cursor: move;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--taffy-shadow);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.taffy-chat-bubble:hover {
+  transform: scale(1.1);
+}
+
+.taffy-chat-bubble img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* MODIFICACIÓN PRINCIPAL: Fondo transparente para Taffy */
+.taffy-original-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(247, 243, 239, 0.85); /* Fondo semi-transparente */
+  backdrop-filter: blur(5px); /* Efecto de desenfoque para el fondo */
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.taffy-original-content.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Estilos de Taffy */
+.taffy-assistant-container {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  gap: 40px;
+  align-items: flex-end;
+}
+
+/* Panel de opciones - más transparente */
+.taffy-panel {
+  width: 350px;
+  background: rgba(255, 255, 255, 0.9); /* Más transparente */
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: var(--taffy-shadow);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px); /* Efecto de vidrio esmerilado */
+}
+
+.taffy-panel h2 {
+  color: var(--taffy-primary-dark);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.taffy-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.taffy-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 10px;
+  background: white;
+  border: 2px solid var(--taffy-primary);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.taffy-btn:hover {
+  background: var(--taffy-primary);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.taffy-btn .taffy-icon {
+  font-size: 1.5rem;
+}
+
+.taffy-settings-section {
+  padding: 20px 0;
+  border-top: 1px solid rgba(196, 155, 99, 0.2);
+}
+
+.taffy-settings-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.taffy-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.taffy-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  background: white;
+  border: 2px solid var(--taffy-primary);
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+}
+
+.taffy-voice-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  background: var(--taffy-primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.taffy-voice-btn:hover {
+  background: var(--taffy-primary-dark);
+}
+
+/* Sección de Taffy */
+.taffy-main-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+/* Burbuja de diálogo - más transparente */
+.taffy-bubble {
+  background: rgba(255, 248, 225, 0.9); /* Más transparente */
+  border: 2px solid var(--taffy-primary);
+  border-radius: 18px;
+  padding: 15px 20px;
+  max-width: 300px;
+  box-shadow: var(--taffy-shadow);
+  position: relative;
+  backdrop-filter: blur(5px);
+}
+
+.taffy-bubble:after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: 30px;
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: var(--taffy-bubble) transparent;
+}
+
+.taffy-image-container {
+  position: relative;
+}
+
+.taffy-image {
+  width: 180px;
+  cursor: pointer;
+  user-select: none;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.15));
+  animation: taffy-bounce 2s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.taffy-image:hover {
+  transform: scale(1.05);
+}
+
+.taffy-click-hint {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--taffy-primary);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+
+.taffy-image-container:hover .taffy-click-hint {
+  opacity: 1;
+}
+
+@keyframes taffy-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Animación de la burbuja */
+@keyframes taffy-bubbleBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.taffy-chat-bubble {
+  animation: taffy-bubbleBounce 2s ease-in-out infinite;
+}
+
+/* Botón de cerrar Taffy */
+.taffy-close-btn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  background: var(--taffy-primary);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+  transition: opacity 0.3s ease;
+}
+
+/* Responsive para Taffy */
+@media (max-width: 768px) {
+  .taffy-assistant-container {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .taffy-panel {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .taffy-main-section {
+    align-items: center;
+  }
+
+  .taffy-bubble {
+    max-width: 100%;
+  }
+}
+
+/* Clase para ocultar elementos */
+.hidden {
+  display: none !important;
+}
